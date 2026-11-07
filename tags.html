@@ -1,0 +1,7 @@
+---
+layout: default
+title: 태그
+permalink: /tags/
+---
+<div class="archive-head"><h1>태그 <span>{{ site.tags | size }}</span></h1></div><div class="tag-cloud"><a href="{{ '/tags/' | relative_url }}">전체</a>{% assign sorted_tags = site.tags | sort %}{% for tag in sorted_tags %}<a href="{{ '/tags/' | relative_url }}?tag={{ tag[0] | url_encode }}">#{{ tag[0] | escape }} <small>{{ tag[1] | size }}</small></a>{% endfor %}</div>
+{% if site.tags.size == 0 %}<p class="empty">글에 태그를 추가하면 이곳에 모여요.</p>{% endif %}<div id="tag-results">{% for post in site.posts %}{% if post.tags.size > 0 %}<article class="tag-entry" data-tags="{{ post.tags | join: '|' | escape }}"><time>{{ post.date | date: '%Y. %m. %d.' }}</time><h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2><p>{{ post.excerpt | strip_html | truncate: 120 | escape }}</p></article>{% endif %}{% endfor %}</div><p id="tag-empty" class="empty" hidden>이 태그의 글이 없습니다.</p>
