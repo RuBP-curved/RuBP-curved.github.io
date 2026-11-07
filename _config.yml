@@ -1,0 +1,15 @@
+title: "RuBP의 기록"
+description: "배우고, 만들고, 좋아하는 것들을 기록합니다."
+url: "https://rubp-curved.github.io"
+baseurl: ""
+lang: ko
+timezone: Asia/Seoul
+markdown: kramdown
+permalink: /posts/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
