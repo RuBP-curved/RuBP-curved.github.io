@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">{% seo %}{% feed_meta %}
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('blog-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+</head>
+<body><a class="skip" href="#main">본문으로 이동</a>
+<div class="shell"><header><a class="brand" href="{{ '/' | relative_url }}"><span class="mark">R.</span><span>{{ site.title | escape }}<small>PERSONAL NOTES</small></span></a>
+<nav aria-label="주 메뉴"><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>글 목록</a><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>소개</a><button id="theme" type="button" aria-label="밝은 테마와 어두운 테마 전환">테마 전환</button></nav></header>
+<main id="main">{{ content }}</main>
+<footer><span>© {{ 'now' | date: '%Y' }} {{ site.title | escape }}</span><div><a href="https://github.com/RuBP-curved">GitHub ↗</a><a href="{{ '/feed.xml' | relative_url }}">RSS ↗</a></div></footer></div>
+<script>document.getElementById('theme').addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('blog-theme',theme)}catch(e){}})</script>
+</body></html>

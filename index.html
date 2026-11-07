@@ -1,0 +1,8 @@
+---
+layout: default
+---
+<section class="hero"><div class="eyebrow">LEARN. MAKE. RECORD.</div><h1>조금씩 배우고,<br>오래 남기는 기록.</h1><p>{{ site.description | escape }}</p></section>
+<section aria-label="블로그 글"><div class="listing-head"><h2>모든 기록 <span class="count">{{ site.posts | size }}개의 글</span></h2><input type="search" id="search" placeholder="궁금한 기록을 찾아보세요" aria-label="글 제목과 내용 검색"></div>
+<div id="posts">{% for post in site.posts %}<article class="entry"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time><div>{% for category in post.categories %}<span class="tag">{{ category | escape }}</span> {% endfor %}<h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><p>{{ post.excerpt | strip_html | truncate: 150 | escape }}</p><a class="read" href="{{ post.url | relative_url }}">기록 읽기 ↗</a></div></article>{% endfor %}</div>
+<p id="empty" role="status" hidden>검색 결과가 없어요. 다른 단어로 찾아보세요.</p></section>
+<script>const search=document.getElementById('search');search.addEventListener('input',()=>{const q=search.value.trim().toLocaleLowerCase();let visible=0;document.querySelectorAll('.entry').forEach(entry=>{entry.hidden=!entry.textContent.toLocaleLowerCase().includes(q);if(!entry.hidden)visible++});document.getElementById('empty').hidden=visible>0})</script>
